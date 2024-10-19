@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import styled from 'styled-components';
-import Main from './pages/main';
+// import Main from './pages/main';
 import NavBar from './components/navbar';
 import EditStep1 from './pages/edit/editStep1';
 import EditStep2 from './pages/edit/editStep2';
@@ -19,8 +19,8 @@ function App() {
       <NavBar />
           <Container>
             <Routes>
-              <Route path='/' element={<Main />}/>
-              <Route path='/editstep1' element={<EditStep1 />}/>
+              {/* <Route path='/' element={<Main />}/> */}
+              <Route path='/' element={<EditStep1 />}/>
               <Route path='/editstep2' element={<EditStep2 />}/>
               <Route path='/editstep3' element={<EditStep3 />}/>
               <Route path='/editstep4' element={<EditStep4 />}/>

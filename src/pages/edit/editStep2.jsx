@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { useNavigate, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom'; 
+import { useState } from 'react'; 
 import "../../assets/font/pretendard.css";
 import btnUpload from "../../assets/img/editStep/btnUpload.png";
 import btnUploadNonSelected from "../../assets/img/editStep/btnUploadNonSelected.png";
@@ -9,6 +9,7 @@ import videoCancel from "../../assets/img/editStep/videoCancel.png";
 import btnEditGPS from "../../assets/img/editStep/btnEditGps.png";
 import ProgressBar from '../../components/progressbar'; 
 import EXIF from 'exif-js';
+import btnGoBack from "../../assets/img/editStep/btnGoBack.png";
 
 function EditStep2() {
     const navigate = useNavigate();
@@ -88,15 +89,12 @@ function EditStep2() {
             return;
         }
 
-        // 썸네일 정보를 포함하지 않는 파일 정보 배열 생성
         const filesWithThumbnails = selectedFiles.map((file) => ({
             file,
         }));
 
-        // 썸네일을 배열로 생성
         const thumbnailsToSend = thumbnails.filter(thumbnail => thumbnail !== null);
 
-        // email 정보를 함께 전달
         navigate('../editstep3', { state: { files: filesWithThumbnails, thumbnails: thumbnailsToSend, email } });
     };
 
@@ -119,6 +117,9 @@ function EditStep2() {
 
     return (
         <Container>
+            <GoBack onClick={() => navigate('/')} className="goback-button">
+                <img src={btnGoBack} alt="Go Back" />
+            </GoBack>
             <UploadContainer height={selectedFiles.length === 0 ? '180px' : '310px'}>
                 <TextContainer>
                     <p>영상을 시간 순서대로 업로드해주세요.</p>
@@ -186,7 +187,6 @@ function EditStep2() {
 }
 
 const Container = styled.div`
-    min-width: 1440px;
     width: 100vw;
     height: calc(100vh - 50px);
     background-color: #E1E5EA;
@@ -194,6 +194,20 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     font-family: Pretendard-Regular;
+
+    @media (max-width: 768px) {
+        width: 100vw;
+    }
+`;
+
+const GoBack = styled.div`
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: 20px; margin-left: 23px;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
 `;
 
 const UploadContainer = styled.div`
@@ -203,7 +217,12 @@ const UploadContainer = styled.div`
     padding: 30px 50px 10px 50px;
     border: 1px solid black;
     border-radius: 5px;
-    margin-top: 50px;
+    margin-top: 40px;
+
+    @media (max-width: 768px) {
+        width: 80%; // 모바일 화면에서 너비를 100%로 설정
+        padding: 20px; // 모바일 화면에서 패딩 조정
+    }
 `;
 
 const TextContainer = styled.div`
@@ -212,13 +231,17 @@ const TextContainer = styled.div`
     p {
         margin: 0;
     }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
 `;
 
 const BtnContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 10px
 `;
 
 const SelectedFiles = styled.div`
@@ -227,12 +250,20 @@ const SelectedFiles = styled.div`
     color: #333;
     max-height: 150px;
     overflow-y: auto;
+
+    @media (max-width: 768px) {
+        max-height: 135px;
+    }
 `;
 
 const FileList = styled.div`
     max-height: 135px;
     overflow-y: auto;
     padding: 0 10px;
+
+    @media (max-width: 768px) {
+        max-height: 135px;
+    }
 `;
 
 const FileItem = styled.div`
@@ -244,6 +275,11 @@ const FileItem = styled.div`
     background-color: #D9D9D9;
     padding: 5px 10px;
     border-radius: 5px;
+
+    @media (max-width: 768px) {
+        font-size: 12px;
+        padding: 5px;
+    }
 `;
 
 const Thumbnail = styled.img`
@@ -251,22 +287,36 @@ const Thumbnail = styled.img`
     height: 30px;
     margin-right: 8px;
     border-radius: 5px;
+
+    @media (max-width: 768px) {
+        width: 24px;
+        height: 24px;
+    }
 `;
 
 const ItemInfo = styled.div`
     display: flex;
     justify-content: space-between; 
-    flex-grow: 1;`;
+    flex-grow: 1;
+`;
 
 const FileName = styled.span`
     width: 120px;
     text-align: left;
     margin-left: 20px;
+
+    @media (max-width: 768px) {
+        width: 100px;
+    }
 `;
 
 const GpsInfo = styled.span`
     font-size: 12px; 
     margin-right: 20px;
+
+    @media (max-width: 768px) {
+        font-size: 10px;
+    }
 `;
 
 const GpsEditContainer = styled.div`
@@ -278,6 +328,11 @@ const GpsEditContainer = styled.div`
         border: 1px solid black;
         border-radius: 5px;
         background-color: #D9D9D9;
+
+        @media (max-width: 768px) {
+            font-size: 10px; 
+            width: 70px;
+        }
     }
 `;
 
@@ -285,6 +340,11 @@ const CancelIcon = styled.img`
     width: 20px;
     height: 20px;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+        width: 16px;
+        height: 16px;
+    }
 `;
 
 const CompleteContainer = styled.div`
@@ -296,7 +356,10 @@ const CompleteContainer = styled.div`
     left: 50%;
     transform: translateX(-50%); 
     cursor: pointer;
+
+    @media (max-width: 768px) {
+        bottom: 150px; // 모바일 화면에서 버튼 위치 조정
+    }
 `;
 
 export default EditStep2;
-

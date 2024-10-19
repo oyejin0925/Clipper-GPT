@@ -3,13 +3,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import "../../assets/font/pretendard.css";
 import btnGoHome from "../../assets/img/editStep/btnGoHome.png";
 import ProgressBar from '../../components/progressbar'; 
+import btnGoBack from "../../assets/img/editStep/btnGoBack.png";
 
 function EditStep4() {
     const location = useLocation();
     const navigate = useNavigate(); 
 
     const files = location.state?.files;
-    const thumbnails = location.state?.thumbnails; // 썸네일 정보 추가
+    const thumbnails = location.state?.thumbnails;
     const title = location.state?.title;
     console.log("받아온 비디오 정보:", files);
     console.log("받아온 제목:", title);
@@ -23,9 +24,12 @@ function EditStep4() {
 
     return (
         <Container>
+            <GoBack onClick={() => navigate('/editstep3')} className="goback-button">
+                <img src={btnGoBack} alt="Go Back" />
+            </GoBack>
             <ThumbnailContainer>
                 {thumbnailUrl ? (
-                    <img src={thumbnailUrl} alt="썸네일" style={{ width: '100%', maxHeight: 'auto' }} />
+                    <img src={thumbnailUrl} alt="썸네일" style={{ width: '100%', height: 'auto' }} />
                 ) : (
                     <p>썸네일이 없습니다.</p>
                 )}
@@ -49,23 +53,44 @@ function EditStep4() {
 }
 
 const Container = styled.div`
-    min-width: 1440px;
     width: 100vw;
     height: calc(100vh - 50px);
     background-color: #E1E5EA;
-    font-family: Pretendard-Regular;
-    display: flex;
+    // min-width: 1440px;
+    display: flex; 
     flex-direction: column;
     align-items: center;
-`;
+    font-family: Pretendard-Regular;
 
+
+    @media (max-width: 768px) {
+        width: 100vw;
+    }
+`;
+const GoBack = styled.div`
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: 20px; margin-left: 23px;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+`;
 const ThumbnailContainer = styled.div`
     text-align: center;
-    width: 270px; height: 200px;
+    width: 270px; 
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center; 
     margin-top: 5%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin-top: 10%;
+    }
 `;
 
 const CommentContainer = styled.div`
@@ -75,6 +100,13 @@ const CommentContainer = styled.div`
         margin: 0;
     }
     color: #828282;
+
+    @media (max-width: 768px) {
+        padding: 20px 0;
+        p {
+            font-size: 14px;
+        }
+    }
 `;
 
 const BtnContainer = styled.div`
@@ -82,6 +114,13 @@ const BtnContainer = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
+
+    @media (max-width: 768px) {
+        img {
+            width: 80%;
+            max-width: 200px;
+        }
+    }
 `;
 
 export default EditStep4;
