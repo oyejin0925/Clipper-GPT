@@ -220,8 +220,8 @@ const UploadContainer = styled.div`
     margin-top: 40px;
 
     @media (max-width: 768px) {
-        width: 80%; // 모바일 화면에서 너비를 100%로 설정
-        padding: 20px; // 모바일 화면에서 패딩 조정
+        width: 80%;
+        padding: 20px;
     }
 `;
 
@@ -358,7 +358,7 @@ const CompleteContainer = styled.div`
     cursor: pointer;
 
     @media (max-width: 768px) {
-        bottom: 150px; // 모바일 화면에서 버튼 위치 조정
+        bottom: 150px;
     }
 `;
 

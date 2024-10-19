@@ -19,7 +19,6 @@ function EditStep4() {
         navigate('../');
     };
 
-    // 비디오 썸네일 배열을 매핑하여 첫 번째 썸네일 URL을 가져옴
     const thumbnailUrl = thumbnails && thumbnails.length > 0 ? thumbnails[0] : null;
 
     return (
