@@ -367,7 +367,7 @@ Error generating stack: `+l.message+`
     @media (max-width: 768px) {
         width: 100%;
         max-width: 300px;
-        height: 500px; 
+        height: 50px; 
         margin-top: 10%;
     }
 `,iv=B.div`
