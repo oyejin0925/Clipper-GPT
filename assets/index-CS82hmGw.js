@@ -334,7 +334,7 @@ Error generating stack: `+l.message+`
     @media (max-width: 768px) {
         bottom: 150px;
     }
-`,bg="data:image/png;base64,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";function ev(){var a,m,p;const e=an(),t=Xr(),n=(a=e.state)==null?void 0:a.files,r=(m=e.state)==null?void 0:m.thumbnails,i=(p=e.state)==null?void 0:p.email;console.log("받아온 비디오 정보:",n),console.log("받아온 이메일:",i);const[l,o]=I.useState(""),u=async()=>{if(l.trim()===""){alert("브이로그의 제목을 입력해주세요.");return}const h={mail:i,title:l,files:n};console.log("전송할 데이터:",h);try{const g=await fetch("http://34.22.106.77",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(h)});if(!g.ok)throw new Error("Network response was not ok");const y=await g.json();console.log(y),t("../editstep4",{state:{files:n,title:l,mail:i,thumbnails:r}})}catch(g){console.error("Error during fetch:",g),alert("서버에 오류가 발생했습니다. 나중에 다시 시도해주세요.")}},s=r&&r.length>0?r[0]:null;return v.jsxs(tv,{children:[v.jsx(nv,{onClick:()=>t("/editstep2"),className:"goback-button",children:v.jsx("img",{src:ws,alt:"Go Back"})}),v.jsx(rv,{children:s?v.jsx("img",{src:s,alt:"썸네일"}):v.jsx("p",{children:"썸네일이 없습니다."})}),v.jsxs(iv,{children:[v.jsx("input",{id:"input-title",type:"text",placeholder:"브이로그의 제목을 써주세요.",value:l,onChange:h=>o(h.target.value)}),v.jsx("img",{src:bg,alt:"Get Started",onClick:u,style:{cursor:"pointer",marginTop:"30px",paddingTop:"10px"}})]}),v.jsx(Ol,{currentStep:3})]})}const tv=B.div`
+`,bg="data:image/png;base64,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";function ev(){var a,m,p;const e=an(),t=Xr(),n=(a=e.state)==null?void 0:a.files,r=(m=e.state)==null?void 0:m.thumbnails,i=(p=e.state)==null?void 0:p.email;console.log("받아온 비디오 정보:",n),console.log("받아온 이메일:",i);const[l,o]=I.useState(""),u=async()=>{if(l.trim()===""){alert("브이로그의 제목을 입력해주세요.");return}const h={mail:i,title:l,files:n};console.log("전송할 데이터:",h);try{const g=await fetch("http://34.22.106.77",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(h)});if(!g.ok)throw new Error("Network response was not ok");const y=await g.json();console.log(y),t("../editstep4",{state:{files:n,title:l,mail:i,thumbnails:r}})}catch(g){console.error("Error during fetch:",g),alert("서버에 오류가 발생했습니다. 나중에 다시 시도해주세요.")}},s=r&&r.length>0?r[0]:null;return v.jsxs(tv,{children:[v.jsx(nv,{onClick:()=>t("/editstep2"),className:"goback-button",children:v.jsx("img",{src:ws,alt:"Go Back"})}),v.jsx(rv,{children:s?v.jsx("img",{style:{maxHeight:"150px"},src:s,alt:"썸네일"}):v.jsx("p",{children:"썸네일이 없습니다."})}),v.jsxs(iv,{children:[v.jsx("input",{id:"input-title",type:"text",placeholder:"브이로그의 제목을 써주세요.",value:l,onChange:h=>o(h.target.value)}),v.jsx("img",{src:bg,alt:"Get Started",onClick:u,style:{cursor:"pointer",marginTop:"30px",paddingTop:"10px"}})]}),v.jsx(Ol,{currentStep:3})]})}const tv=B.div`
     width: 100vw;
     height: calc(100vh - 50px);
     background-color: #E1E5EA;
@@ -345,9 +345,6 @@ Error generating stack: `+l.message+`
 
     @media (max-width: 768px) {
         width: 100vw;
-        img {
-            max-height: 100px;
-        }
     }
 `,nv=B.div`
     cursor: pointer;
@@ -361,11 +358,12 @@ Error generating stack: `+l.message+`
 `,rv=B.div`
     text-align: center;
     width: 270px; 
-    max-height: 150px; // 최대 높이를 150px로 설정
+    max-height: 150px; 
     display: flex;
     align-items: center;
     justify-content: center; 
     margin-top: 5%;
+    overflow: hidden;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -374,10 +372,10 @@ Error generating stack: `+l.message+`
     }
 
     img {
-        width: 100%; // 가로 기준으로 전체 너비에 맞춤
-        height: auto; // 비율 유지
-        max-height: 150px; // 최대 높이 150px 설정
-        object-fit: cover; // 비율 유지하며 잘림
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: cover;
     }
 `,iv=B.div`
     display: flex;
