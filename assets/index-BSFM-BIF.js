@@ -369,6 +369,9 @@ Error generating stack: `+l.message+`
         max-width: 300px;
         max-height: 100px; 
         margin-top: 10%;
+        img {
+            max-height: 100px; 
+        }
     }
 `,iv=B.div`
     display: flex;
