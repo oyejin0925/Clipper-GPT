@@ -6,9 +6,7 @@ import btnUpload from "../../assets/img/editStep/btnUpload.png";
 import btnUploadNonSelected from "../../assets/img/editStep/btnUploadNonSelected.png";
 import btnUploadSelected from "../../assets/img/editStep/btnUploadSelected.png";
 import videoCancel from "../../assets/img/editStep/videoCancel.png";
-import btnEditGPS from "../../assets/img/editStep/btnEditGps.png";
 import ProgressBar from '../../components/progressbar'; 
-import EXIF from 'exif-js';
 import btnGoBack from "../../assets/img/editStep/btnGoBack.png";
 
 function EditStep2() {
@@ -18,9 +16,6 @@ function EditStep2() {
 
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [thumbnails, setThumbnails] = useState([]);
-    const [gpsInfos, setGpsInfos] = useState([]); 
-    const [editingIndex, setEditingIndex] = useState(null);
-    const [newGpsInfo, setNewGpsInfo] = useState(""); 
 
     console.log("받아온 이메일:", email);
 
@@ -31,30 +26,47 @@ function EditStep2() {
             return;
         }
 
-        const newThumbnails = await Promise.all(files.map(file => getThumbnail(file)));
-        setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
-        setThumbnails((prevThumbnails) => [...prevThumbnails, ...newThumbnails]);
+        const validFiles = [];
 
-        const newGpsInfo = await Promise.all(files.map(file => extractGPSInfo(file)));
-        setGpsInfos((prevGpsInfos) => [...prevGpsInfos, ...newGpsInfo]);
+        for (const file of files) {
+            const duration = await getVideoDuration(file);
+            if (duration > 30 * 60) { // 30분을 초로 변환
+                alert(`${file.name}은 30분을 초과합니다.`);
+            } else {
+                validFiles.push(file);
+            }
+        }
+
+        if (validFiles.length + selectedFiles.length > 10) {
+            alert("영상은 최대 10개까지 선택할 수 있습니다.");
+            return;
+        }
+
+        const newThumbnails = await Promise.all(validFiles.map(file => getThumbnail(file)));
+        setSelectedFiles((prevFiles) => [...prevFiles, ...validFiles]);
+        setThumbnails((prevThumbnails) => [...prevThumbnails, ...newThumbnails]);
     };
 
-    const extractGPSInfo = (file) => {
+    const getVideoDuration = (file) => {
         return new Promise((resolve) => {
-            EXIF.getData(file, function() {
-                const lat = EXIF.getTag(this, "GPSLatitude");
-                const long = EXIF.getTag(this, "GPSLongitude");
-                
-                const gpsData = lat && long ? [`GPSLatitude: ${lat}`, `GPSLongitude: ${long}`] : ['GPS 정보가 없습니다.'];
-                resolve(gpsData.join(', '));
-            });
+            const videoElement = document.createElement('video');
+            videoElement.src = URL.createObjectURL(file);
+            videoElement.preload = "metadata";
+
+            videoElement.onloadedmetadata = () => {
+                resolve(videoElement.duration); // duration은 초 단위
+            };
+
+            videoElement.onerror = () => {
+                console.error("비디오 로드 오류");
+                resolve(0); // 오류 발생 시 0 반환
+            };
         });
     };
 
     const removeFile = (index) => {
         setSelectedFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
         setThumbnails((prevThumbnails) => prevThumbnails.filter((_, i) => i !== index));
-        setGpsInfos((prevGpsInfos) => prevGpsInfos.filter((_, i) => i !== index));
     };
 
     const getThumbnail = (file) => {
@@ -78,7 +90,7 @@ function EditStep2() {
 
             videoElement.onerror = () => {
                 console.error("비디오 로드 오류");
-                resolve(null); // 썸네일 생성을 실패할 경우 null 반환
+                resolve(null); 
             };
         });
     };
@@ -98,32 +110,15 @@ function EditStep2() {
         navigate('../editstep3', { state: { files: filesWithThumbnails, thumbnails: thumbnailsToSend, email } });
     };
 
-    const startEditingGPS = (index) => {
-        setEditingIndex(index);
-        setNewGpsInfo(gpsInfos[index]); 
-    };
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter' && editingIndex !== null) {
-            setGpsInfos((prevGpsInfos) => {
-                const updatedGpsInfos = [...prevGpsInfos];
-                updatedGpsInfos[editingIndex] = newGpsInfo;
-                return updatedGpsInfos;
-            });
-            setEditingIndex(null);
-            setNewGpsInfo(""); 
-        }
-    };
-
     return (
         <Container>
             <GoBack onClick={() => navigate('/')} className="goback-button">
                 <img src={btnGoBack} alt="Go Back" />
             </GoBack>
-            <UploadContainer height={selectedFiles.length === 0 ? '180px' : '310px'}>
+            <UploadContainer height={selectedFiles.length === 0 ? '180px' : '300px'}>
                 <TextContainer>
                     <p>영상을 시간 순서대로 업로드해주세요.</p>
-                    <p>영상은 10개 이하, 3시간 이하만 업로드 가능합니다.</p>
+                    <p>영상은 10개 이하, 30분 이하만 업로드 가능합니다.</p>
                 </TextContainer>
                 <BtnContainer>
                     <label htmlFor="file-upload" style={{ cursor: 'pointer' }}>
@@ -147,26 +142,6 @@ function EditStep2() {
                                     <FileName>
                                         {file.name.length > 10 ? `${file.name.slice(0, 9)}...` : file.name}
                                     </FileName>
-                                    {editingIndex === index ? (
-                                        <GpsEditContainer>
-                                            <input 
-                                                type="text" 
-                                                value={newGpsInfo} 
-                                                onChange={(e) => setNewGpsInfo(e.target.value)} 
-                                                onKeyDown={handleKeyDown}
-                                                placeholder="수정할 GPS 정보를 입력하세요." 
-                                            />
-                                        </GpsEditContainer>
-                                    ) : (
-                                        <GpsInfo onClick={() => startEditingGPS(index)}>
-                                            {gpsInfos[index]}
-                                            <img 
-                                                src={btnEditGPS} 
-                                                style={{ paddingLeft: '5px', cursor: 'pointer' }} 
-                                                alt="Edit GPS" 
-                                            />
-                                        </GpsInfo>
-                                    )}
                                 </ItemInfo>
                                 <CancelIcon 
                                     src={videoCancel} 
@@ -295,44 +270,19 @@ const Thumbnail = styled.img`
 `;
 
 const ItemInfo = styled.div`
+    width: 250px;
     display: flex;
     justify-content: space-between; 
     flex-grow: 1;
 `;
 
 const FileName = styled.span`
-    width: 120px;
+    width: 250px;
     text-align: left;
     margin-left: 20px;
 
     @media (max-width: 768px) {
         width: 100px;
-    }
-`;
-
-const GpsInfo = styled.span`
-    font-size: 12px; 
-    margin-right: 20px;
-
-    @media (max-width: 768px) {
-        font-size: 10px;
-    }
-`;
-
-const GpsEditContainer = styled.div`
-    display: flex;
-    align-items: center;
-    input {
-        margin-right: 10px;
-        font-size: 12px;
-        border: 1px solid black;
-        border-radius: 5px;
-        background-color: #D9D9D9;
-
-        @media (max-width: 768px) {
-            font-size: 10px; 
-            width: 70px;
-        }
     }
 `;
 
