@@ -369,7 +369,7 @@ Error generating stack: `+l.message+`
     @media (max-width: 768px) {
         // width: 100%;
         max-width: 300px;
-        max-height: 150px;
+        max-height: 250px;
         margin-top: 10%;
     }
 
