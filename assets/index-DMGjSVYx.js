@@ -643,6 +643,6 @@ Error generating stack: `+l.message+`
             width: 250px;
         }
     }
-`;function Bv(){return v.jsx(v0,{children:v.jsx("div",{className:"App",children:v.jsxs(zv,{children:[v.jsx(kg,{}),v.jsx(Tv,{children:v.jsxs(c0,{children:[v.jsx(Vt,{path:"/",element:v.jsx(Bg,{})}),v.jsx(Vt,{path:"/editstep2",element:v.jsx(Mg,{})}),v.jsx(Vt,{path:"/editstep3",element:v.jsx(ev,{})}),v.jsx(Vt,{path:"/editstep4",element:v.jsx(ov,{})}),v.jsx(Vt,{path:"/aboutus",element:v.jsx(hv,{})}),v.jsx(Vt,{path:"/qna",element:v.jsx(Ev,{})})]})})]})})})}const zv=B.div`
-`,Tv=B.div`
-`;dd(document.getElementById("root")).render(v.jsx(I.StrictMode,{children:v.jsx(Bv,{})}));
+`;var Bv={};function zv(){return v.jsx(v0,{basename:Bv.PUBLIC_URL,children:v.jsx("div",{className:"App",children:v.jsxs(Tv,{children:[v.jsx(kg,{}),v.jsx(Ov,{children:v.jsxs(c0,{children:[v.jsx(Vt,{path:"/",element:v.jsx(Bg,{})}),v.jsx(Vt,{path:"/editstep2",element:v.jsx(Mg,{})}),v.jsx(Vt,{path:"/editstep3",element:v.jsx(ev,{})}),v.jsx(Vt,{path:"/editstep4",element:v.jsx(ov,{})}),v.jsx(Vt,{path:"/aboutus",element:v.jsx(hv,{})}),v.jsx(Vt,{path:"/qna",element:v.jsx(Ev,{})})]})})]})})})}const Tv=B.div`
+`,Ov=B.div`
+`;dd(document.getElementById("root")).render(v.jsx(I.StrictMode,{children:v.jsx(zv,{})}));
