@@ -367,15 +367,16 @@ Error generating stack: `+l.message+`
     overflow: hidden;
 
     @media (max-width: 768px) {
-        width: 100%;
+        // width: 100%;
         max-width: 300px;
         max-height: 150px;
         margin-top: 10%;
     }
 
     img {
-        width: 100%;
+        // width: 100%;
         // height: auto;
+        max-width: 300px;
         max-height: 150px;
         object-fit: cover;
     }
