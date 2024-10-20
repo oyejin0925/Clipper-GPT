@@ -187,7 +187,7 @@ Error generating stack: `+l.message+`
     padding-top: 5%;
 
     #input-email {
-        width: 100px; 
+        width: 456px; 
         height: 84px;
         font-size: 20px;
         border: 1px solid black;
@@ -195,7 +195,7 @@ Error generating stack: `+l.message+`
         padding-left: 20px;
 
         @media (max-width: 768px) { 
-            width: 100%;
+            width: 300px;
             max-width: 400px;
             height: 60px;
             font-size: 16px;
