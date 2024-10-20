@@ -375,7 +375,7 @@ Error generating stack: `+l.message+`
 
     img {
         width: 100%;
-        height: auto;
+        // height: auto;
         max-height: 150px;
         object-fit: cover;
     }
