@@ -377,7 +377,7 @@ Error generating stack: `+l.message+`
         // width: 100%;
         // height: auto;
         max-width: 300px;
-        max-height: 150px;
+        max-height: 250px;
         object-fit: cover;
     }
 `,iv=B.div`
