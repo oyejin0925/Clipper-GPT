@@ -98,7 +98,7 @@ const InputContainer = styled.div`
         padding-left: 20px;
 
         @media (max-width: 768px) { 
-            width: 100%;
+            width: 300px;
             max-width: 400px;
             height: 60px;
             font-size: 16px;

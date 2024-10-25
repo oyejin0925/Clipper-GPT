@@ -13,7 +13,7 @@ import QnA from './pages/qna';
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='Clipper-GPT'>
     <div className="App">
       <Wrap>
       <NavBar />

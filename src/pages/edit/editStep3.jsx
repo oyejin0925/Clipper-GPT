@@ -18,7 +18,9 @@ function EditStep3() {
 
     const [title, setTitle] = useState("");
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // 기본 동작 방지
+
         if (title.trim() === "") {
             alert("브이로그의 제목을 입력해주세요.");
             return;
@@ -53,7 +55,6 @@ function EditStep3() {
         catch (error) {
             console.error("Error during fetch:", error);
             alert("서버에 오류가 발생했습니다. 나중에 다시 시도해주세요.");
-            // navigate('../editstep4', { state: { files, title, mail, thumbnails } });
         }
     };
 
@@ -66,25 +67,27 @@ function EditStep3() {
             </GoBack>
             <ThumbnailContainer>
                 {thumbnailUrl ? (
-                    <img src={thumbnailUrl} alt="썸네일" style={{ width: '100%', height: 'auto' }} />
+                    <img style={{maxHeight: '250px', maxWidth: '300px'}} src={thumbnailUrl} alt="썸네일" />
                 ) : (
                     <p>썸네일이 없습니다.</p>
                 )}
             </ThumbnailContainer>
             <InputContainer>
-                <input 
-                    id="input-title"
-                    type="text" 
-                    placeholder="브이로그의 제목을 써주세요." 
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                <img 
-                    src={btnStartEdit} 
-                    alt="Get Started" 
-                    onClick={handleSubmit} 
-                    style={{ cursor: 'pointer', marginTop: '30px', paddingTop: '10px' }}
-                />
+                <form onSubmit={handleSubmit}>
+                    <input 
+                        id="input-title"
+                        type="text" 
+                        placeholder="브이로그의 제목을 써주세요." 
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <img 
+                        src={btnStartEdit} 
+                        alt="Get Started" 
+                        type="submit" 
+                        style={{ cursor: 'pointer', marginTop: '30px', paddingTop: '10px' }}
+                    />
+                </form>
             </InputContainer>
             <ProgressBar currentStep={3} />
         </Container>
@@ -99,6 +102,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     font-family: Pretendard-Regular;
+    overflow-hidden;
 
     @media (max-width: 768px) {
         width: 100vw;
@@ -119,17 +123,23 @@ const GoBack = styled.div`
 const ThumbnailContainer = styled.div`
     text-align: center;
     width: 270px; 
-    height: 200px;
+    max-height: 150px; 
     display: flex;
     align-items: center;
     justify-content: center; 
     margin-top: 5%;
+    overflow: hidden;
 
     @media (max-width: 768px) {
-        width: 100%;
         max-width: 300px;
-        height: auto; 
+        max-height: 250px;
         margin-top: 10%;
+    }
+
+    img {
+        max-width: 300px;
+        max-height: 250px;
+        object-fit: cover;
     }
 `;
 

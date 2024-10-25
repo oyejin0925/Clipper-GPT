@@ -27,18 +27,30 @@ function EditStep2() {
         }
 
         const validFiles = [];
+        let totalDuration = 0; 
 
         for (const file of files) {
+            const validFormats = ['video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/x-matroska', 'video/x-flv', 'video/webm'];
+            if (!validFormats.includes(file.type)) {
+                alert(`${file.name}은 지원되지 않는 형식입니다.`);
+                continue;
+            }
+
             const duration = await getVideoDuration(file);
-            if (duration > 30 * 60) { // 30분을 초로 변환
+            if (duration > 30 * 60) {
                 alert(`${file.name}은 30분을 초과합니다.`);
             } else {
                 validFiles.push(file);
+                totalDuration += duration;
             }
         }
 
-        if (validFiles.length + selectedFiles.length > 10) {
-            alert("영상은 최대 10개까지 선택할 수 있습니다.");
+        // 총 길이가 30분을 초과하는지 체크
+        const existingDurations = await Promise.all(selectedFiles.map(file => getVideoDuration(file)));
+        const totalExistingDuration = existingDurations.reduce((sum, duration) => sum + duration, 0);
+
+        if (totalDuration + totalExistingDuration > 30 * 60) {
+            alert("선택한 영상들의 총 길이는 30분을 초과할 수 없습니다.");
             return;
         }
 
@@ -59,7 +71,7 @@ function EditStep2() {
 
             videoElement.onerror = () => {
                 console.error("비디오 로드 오류");
-                resolve(0); // 오류 발생 시 0 반환
+                resolve(0);
             };
         });
     };
@@ -118,7 +130,7 @@ function EditStep2() {
             <UploadContainer height={selectedFiles.length === 0 ? '180px' : '300px'}>
                 <TextContainer>
                     <p>영상을 시간 순서대로 업로드해주세요.</p>
-                    <p>영상은 10개 이하, 30분 이하만 업로드 가능합니다.</p>
+                    <p>영상은 10개 이하, 총 30분 이하만 업로드 가능합니다.</p>
                 </TextContainer>
                 <BtnContainer>
                     <label htmlFor="file-upload" style={{ cursor: 'pointer' }}>
@@ -251,7 +263,7 @@ const FileItem = styled.div`
     padding: 5px 10px;
     border-radius: 5px;
 
-    @media (max-width: 768px) {
+    @media (max    @media (max-width: 768px) {
         font-size: 12px;
         padding: 5px;
     }
@@ -313,3 +325,4 @@ const CompleteContainer = styled.div`
 `;
 
 export default EditStep2;
+
