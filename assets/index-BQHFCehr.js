@@ -203,7 +203,6 @@ Error generating stack: `+o.message+`
         border: 1px solid black;
         border-radius: 10px;
         padding-left: 20px;
-        background-color: white;
 
         @media (max-width: 768px) { 
             width: 300px;
