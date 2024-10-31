@@ -130,7 +130,7 @@ Error generating stack: `+o.message+`
     left: 50%; /* 수평 중앙 정렬 */
     transform: translateX(-50%); /* 중앙 정렬을 위한 변환 */
     padding: 20px;
-    background-color: #E1E5EA; 
+    background-color: transparent; 
     width: 60%;
 `,Ui=D.div`
     width: 30px;
