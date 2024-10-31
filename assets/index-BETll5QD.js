@@ -514,6 +514,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 
     @media (max-width: 768px) {
         padding-bottom: 20px;
+            .bold {
+                font-family: Pretendard-Bold;
+                font-size: 30px;
+            }
     }
 `,L1=N.div`
     width: 860px;
