@@ -260,7 +260,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
     border: none;
 `,u1=D.div`
     border:1px solid red;
