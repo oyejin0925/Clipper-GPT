@@ -237,14 +237,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     width: 456px; 
     height: ${e=>e.height};
     background-color: white;
-    padding: 5px 50px 10px 50px;
+    padding: 20px 50px 10px 50px;
     border: 1px solid black;
     border-radius: 5px;
     margin-top: 40px;
 
     @media (max-width: 768px) {
         width: 80%;
-        padding: 20px;
+        padding: 0 20px;
     }
 `,o1=D.div`
     text-align: center;
