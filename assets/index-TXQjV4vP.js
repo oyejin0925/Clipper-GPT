@@ -451,7 +451,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 
     @media (prefers-color-scheme: dark) {
-        color: white; 
+        background-color: white; 
         #input-email::placeholder {
             color: #828282;
         }
