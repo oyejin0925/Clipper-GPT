@@ -376,6 +376,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     left: 50%;
     transform: translateX(-50%); 
     cursor: pointer;
+    margin-top: 15px;
 
     @media (max-width: 768px) {
         bottom: 150px;
