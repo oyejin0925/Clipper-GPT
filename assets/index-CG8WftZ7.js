@@ -265,6 +265,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,u1=D.div`
     border:1px solid purple;
     padding: 0;
+    height: 63px;
 `,a1=D.div`
     margin-top: 20px;
     text-align: center;
