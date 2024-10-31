@@ -566,7 +566,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         padding: 10px 20px;
         align-items: center; 
         text-align: center; 
-        font-size: 20px;
+        font-size: 18px;
     }
 `,B1=""+new URL("btnAsk-BaPHWVAi.png",import.meta.url).href;function U1(){return g.jsxs(W1,{children:[g.jsx(Q1,{children:g.jsx("p",{children:"무엇을 도와드릴까요?"})}),g.jsxs(H1,{children:[g.jsxs(V1,{children:[g.jsx("p",{className:"bold",children:"자주 묻는 질문"}),g.jsx("br",{}),g.jsx("p",{children:"Q. 이메일이 오지 않아요."}),g.jsx("br",{}),g.jsxs(K1,{children:[g.jsx("p",{children:"A. 인공지능이 편집을 하는데에 시간이 걸립니다. 조금만 기다려주세요."}),g.jsx("p",{children:"만약 1일 내로 메일이 오지 않는다면"}),g.jsx("p",{className:"tabbed",children:"1. 스팸차단함을 확인해주세요."}),g.jsx("p",{className:"tabbed",children:"2. 이메일이 오기 전까지 해당 창을 백그라운드에 켜놔주세요."}),g.jsx("br",{}),g.jsx("p",{children:"만약 문제가 해결되지 않았다면"}),g.jsx("p",{className:"tabbed",children:"3. 문의하기를 눌러 상담원에게 메시지를 보내주세요."})]}),g.jsxs(G1,{children:[g.jsx("p",{children:"A. 인공지능이 편집을 하는데에 시간이 걸립니다. 조금만 기다려주세요. 만약 1일 내로 메일이 오지 않는다면"}),g.jsx("p",{className:"tabbed",children:"1. 스팸차단함을 확인해주세요."}),g.jsx("p",{className:"tabbed",children:"2. 이메일이 오기 전까지 해당 창을 백그라운드에 켜놔주세요."}),g.jsx("br",{}),g.jsx("p",{children:"만약 문제가 해결되지 않았다면"}),g.jsx("p",{className:"tabbed",children:"3. 문의하기를 눌러 상담원에게 메시지를 보내주세요."})]})]}),g.jsxs(Y1,{children:[g.jsx("p",{className:"bold",children:"Q&A"}),g.jsx("img",{src:B1,style:{width:"150px",height:"auto"}})]})]})]})}const W1=N.div`
     background-color: #E1E5EA;
@@ -663,6 +663,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         align-items: center; 
         text-align: center; 
         margin-bottom: 20px;
+        font-size: 18px;
     }
 `;function J1(){return g.jsx(Lv,{basename:"Clipper-GPT",children:g.jsx("div",{className:"App",children:g.jsxs(X1,{children:[g.jsx(H0,{}),g.jsx(Z1,{children:g.jsxs(Rv,{children:[g.jsx(on,{path:"/",element:g.jsx(X0,{})}),g.jsx(on,{path:"/editstep2",element:g.jsx(n1,{})}),g.jsx(on,{path:"/editstep3",element:g.jsx(y1,{})}),g.jsx(on,{path:"/editstep4",element:g.jsx(C1,{})}),g.jsx(on,{path:"/aboutus",element:g.jsx(N1,{})}),g.jsx(on,{path:"/qna",element:g.jsx(U1,{})})]})})]})})})}const X1=N.div`
 `,Z1=N.div`
