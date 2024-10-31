@@ -73,7 +73,7 @@ Error generating stack: `+o.message+`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  font-family: Pretendard-Regular;
+  font-family: Baloo Paaji 2;
 
   @media (min-width: 768px) {
       width: 100vw;
