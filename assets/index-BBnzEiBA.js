@@ -568,7 +568,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
-    font-family: yg-jalnan;
+    font-family: Pretendard-Bold;
     font-size: 23px;
 
     @media (max-width: 768px) {
