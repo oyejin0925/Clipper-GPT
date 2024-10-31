@@ -494,6 +494,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         overflow: hidden;
         font-size: 15px;
     }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #E1E5EA; 
+        color: black; 
+    }
 `,I1=N.div`
     font-family: Pretendard-Bold;
     font-size: 60px;
