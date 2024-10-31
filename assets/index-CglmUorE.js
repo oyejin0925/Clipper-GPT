@@ -485,7 +485,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     background-color: #E1E5EA;
     width: 100vw; 
     font-family: Pretendard-Regular;
-    font-size: 17px;
+    font-size: 20px;
     height: calc(100vh - 50px);
 -
     @media (min-width: 768px) {
@@ -504,7 +504,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     text-align: center;
 
     @media (max-width: 768px) {
-        font-size: 30px;
+        font-size: 23px;
     }
 `,z1=N.div`
     display: flex;
@@ -553,7 +553,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     border: 1px solid black;
     border-radius: 10px;
     font-family: Pretendard-Bold;
-    font-size: 20px;
+    font-size: 23px;
 
     @media (max-width: 768px) {
         min-width: 250px;
@@ -622,6 +622,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     @media (max-width: 768px) {
         width: 250px;
         padding: 30px 20px;
+        font-size: 23px;
     }
 `,K1=N.div`
     display: none;
