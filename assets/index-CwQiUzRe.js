@@ -245,7 +245,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     @media (max-width: 768px) {
         margin-top: 0px;
         width: 80%;
-        padding: 0 20px;
+        padding: 20px;
     }
 `,o1=D.div`
     text-align: center;
