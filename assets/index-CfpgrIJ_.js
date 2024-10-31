@@ -361,6 +361,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     @media (max-width: 768px) {
         width: 100px;
     }
+    @media (prefers-color-scheme: dark) {
+        color: black; 
+    }
 `,m1=N.img`
     width: 20px;
     height: 20px;
