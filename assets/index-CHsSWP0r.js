@@ -223,7 +223,7 @@ Error generating stack: `+o.message+`
     @media (prefers-color-scheme: dark) {
         #input-email {
             background-color: white;
-            color:white;
+            color: black;
         }
         #input-email::placeholder {
             color: #828282;
@@ -461,7 +461,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     @media (prefers-color-scheme: dark) {
         #input-title {
             background-color: white;
-            color:white;
+            color: black;
         }
         #input-title::placeholder {
             color: #828282;
