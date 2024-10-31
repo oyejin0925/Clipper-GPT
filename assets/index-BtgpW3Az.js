@@ -647,7 +647,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     @media (max-width: 768px) {
         min-width: 300px;
         width: 300px;
-        padding: 20px;
+        padding: 10px 20px;
         align-items: center; 
         text-align: center; 
         margin-bottom: 30px;
