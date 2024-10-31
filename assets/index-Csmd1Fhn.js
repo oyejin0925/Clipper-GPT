@@ -605,7 +605,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         color: black; /* 텍스트 색상 유지 */
     }
 `,Q1=N.div`
-    font-family: Pretendard-Bold;
+    font-family: yg-jalnan;
     font-size: 60px;
     p {
         margin: 0;
