@@ -263,7 +263,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     // padding-bottom: 10px;
     border: none;
 `,u1=D.div`
-    border:1px solid red;
+    border:1px solid blue;
+    img {
+        padding: 0;
+    }
 `,a1=D.div`
     margin-top: 20px;
     text-align: center;
