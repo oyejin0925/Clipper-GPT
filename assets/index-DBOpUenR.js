@@ -536,6 +536,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 
     @media (max-width: 768px) {
         display: block;
+        width: 300px;
     }
 `,$1=N.div`
     display: block;
