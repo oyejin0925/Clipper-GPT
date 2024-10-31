@@ -73,7 +73,7 @@ Error generating stack: `+o.message+`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  font-family: Baloo Paaji 2;
+  font-family: Pretendard-Regular;
 
   @media (min-width: 768px) {
       width: 100vw;
@@ -149,7 +149,7 @@ Error generating stack: `+o.message+`
     background-color: ${({isActive:e})=>e?"#4F9CF9":"#DADADA"};
 `,$i=D.span`
     color: white;
-`;function J0(){const[e,t]=C.useState(""),n=di(),r=()=>{e?/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)?n("../editstep2",{state:{email:e}}):alert("유효한 이메일 주소를 입력해주세요."):alert("이메일을 입력해주세요.")};return g.jsxs(X0,{children:[g.jsxs(Z0,{children:[g.jsxs("p",{children:["나만의 여행 영상 편집자 ",g.jsx("b",{style:{fontFamily:"Baloo Paaji 2",fontWeight:"800"},children:"Clipper-GPT"}),"로"]}),g.jsx("p",{children:"추억을 더 생생하게 간직해보세요."})]}),g.jsxs(b0,{children:[g.jsx("input",{id:"input-email",type:"text",placeholder:"이메일을 입력해주세요.",value:e,onChange:i=>t(i.target.value)}),g.jsx("img",{src:G0,alt:"Get Started",onClick:r,style:{cursor:"pointer",marginTop:"10px",paddingTop:"10px",width:"190px",height:"auto"}})]}),g.jsx(ll,{currentStep:1})]})}const X0=D.div`
+`;function J0(){const[e,t]=C.useState(""),n=di(),r=()=>{e?/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)?n("../editstep2",{state:{email:e}}):alert("유효한 이메일 주소를 입력해주세요."):alert("이메일을 입력해주세요.")};return g.jsxs(X0,{children:[g.jsxs(Z0,{children:[g.jsxs("p",{children:["나만의 여행 영상 편집자 ",g.jsx("b",{style:{fontFamily:"baloo-paaji-2",fontWeight:"800"},children:"Clipper-GPT"}),"로"]}),g.jsx("p",{children:"추억을 더 생생하게 간직해보세요."})]}),g.jsxs(b0,{children:[g.jsx("input",{id:"input-email",type:"text",placeholder:"이메일을 입력해주세요.",value:e,onChange:i=>t(i.target.value)}),g.jsx("img",{src:G0,alt:"Get Started",onClick:r,style:{cursor:"pointer",marginTop:"10px",paddingTop:"10px",width:"190px",height:"auto"}})]}),g.jsx(ll,{currentStep:1})]})}const X0=D.div`
     width: 100vw;
     height: calc(100vh - 50px);
     background-color: #E1E5EA;
