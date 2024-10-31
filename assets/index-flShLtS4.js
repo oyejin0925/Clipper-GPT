@@ -311,6 +311,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     @media (max-width: 768px) {
         max-height: 135px;
     }
+
+    @media (prefers-color-scheme: dark) {
+        color: black; 
+    }
 `,f1=N.div`
     display: flex;
     align-items: center;
