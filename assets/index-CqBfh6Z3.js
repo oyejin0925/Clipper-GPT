@@ -516,7 +516,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         padding-bottom: 20px;
             .bold {
                 font-family: Pretendard-Bold;
-                font-size: 30px;
+                font-size: 23px;
             }
     }
 `,L1=N.div`
@@ -534,6 +534,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         width: 250px;
         padding: 30px 20px;
         text-align: center;
+        font-size: 15px;
     }
 `,F1=N.div`
     display: none;
@@ -565,6 +566,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         padding: 10px 20px;
         align-items: center; 
         text-align: center; 
+        font-size: 20px;
     }
 `,B1=""+new URL("btnAsk-BaPHWVAi.png",import.meta.url).href;function U1(){return g.jsxs(W1,{children:[g.jsx(Q1,{children:g.jsx("p",{children:"무엇을 도와드릴까요?"})}),g.jsxs(H1,{children:[g.jsxs(V1,{children:[g.jsx("p",{className:"bold",children:"자주 묻는 질문"}),g.jsx("br",{}),g.jsx("p",{children:"Q. 이메일이 오지 않아요."}),g.jsx("br",{}),g.jsxs(K1,{children:[g.jsx("p",{children:"A. 인공지능이 편집을 하는데에 시간이 걸립니다. 조금만 기다려주세요."}),g.jsx("p",{children:"만약 1일 내로 메일이 오지 않는다면"}),g.jsx("p",{className:"tabbed",children:"1. 스팸차단함을 확인해주세요."}),g.jsx("p",{className:"tabbed",children:"2. 이메일이 오기 전까지 해당 창을 백그라운드에 켜놔주세요."}),g.jsx("br",{}),g.jsx("p",{children:"만약 문제가 해결되지 않았다면"}),g.jsx("p",{className:"tabbed",children:"3. 문의하기를 눌러 상담원에게 메시지를 보내주세요."})]}),g.jsxs(G1,{children:[g.jsx("p",{children:"A. 인공지능이 편집을 하는데에 시간이 걸립니다. 조금만 기다려주세요. 만약 1일 내로 메일이 오지 않는다면"}),g.jsx("p",{className:"tabbed",children:"1. 스팸차단함을 확인해주세요."}),g.jsx("p",{className:"tabbed",children:"2. 이메일이 오기 전까지 해당 창을 백그라운드에 켜놔주세요."}),g.jsx("br",{}),g.jsx("p",{children:"만약 문제가 해결되지 않았다면"}),g.jsx("p",{className:"tabbed",children:"3. 문의하기를 눌러 상담원에게 메시지를 보내주세요."})]})]}),g.jsxs(Y1,{children:[g.jsx("p",{className:"bold",children:"Q&A"}),g.jsx("img",{src:B1,style:{width:"150px",height:"auto"}})]})]})]})}const W1=N.div`
     background-color: #E1E5EA;
@@ -606,7 +608,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 
         .bold {
             font-family: Pretendard-Bold;
-            font-size: 23px;
+            font-size: 20px;
         }
     }
 `,V1=N.div`
@@ -626,7 +628,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     @media (max-width: 768px) {
         width: 250px;
         padding: 30px 20px;
-        font-size: 23px;
+        font-size: 15px;
     }
 `,K1=N.div`
     display: none;
