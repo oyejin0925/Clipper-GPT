@@ -271,7 +271,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     text-align: center;
     color: #333;
     max-height: 150px;
-    overflow-y: auto;    @media (max-width: 768px) {
+    overflow-y: auto;    
+    @media (max-width: 768px) {
         max-height: 135px;
     }
 `,s1=D.div`
