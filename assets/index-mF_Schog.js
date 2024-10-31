@@ -173,7 +173,7 @@ Error generating stack: `+o.message+`
     font-size: 60px;
 
     @media (max-width: 768px) {
-        font-size: 24px;
+        font-size: 25px;
         padding: 15% 10px 5% 10px;
     }
 
@@ -601,8 +601,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 
     @media (prefers-color-scheme: dark) {
-        background-color: #E1E5EA; /* 배경색 유지 */
-        color: black; /* 텍스트 색상 유지 */
+        background-color: #E1E5EA;
+        color: black;
     }
 `,Q1=N.div`
     font-family: yg-jalnan;
@@ -654,9 +654,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 
     @media (prefers-color-scheme: dark) {
-        background-color: white; /* 배경색 유지 */
-        border: 1px solid black; /* 테두리 색상 유지 */
-        color: black; /* 텍스트 색상 유지 */
+        background-color: white; 
+        border: 1px solid black;
+        color: black;
     }
 `,K1=N.div`
     display: none;
@@ -680,6 +680,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     border: 1px solid black;
     border-radius: 10px;
     align-items: center;
+    font-family: Pretendard-Bold;
     p {
         margin: 0;
     }
@@ -695,9 +696,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 
     @media (prefers-color-scheme: dark) {
-        background-color: white; /* 배경색 유지 */
-        border: 1px solid black; /* 테두리 색상 유지 */
-        color: black; /* 텍스트 색상 유지 */
+        background-color: white;
+        border: 1px solid black;
+        color: black; 
     }
 `;function J1(){return g.jsx(Lv,{basename:"Clipper-GPT",children:g.jsx("div",{className:"App",children:g.jsxs(X1,{children:[g.jsx(H0,{}),g.jsx(b1,{children:g.jsxs(Rv,{children:[g.jsx(on,{path:"/",element:g.jsx(X0,{})}),g.jsx(on,{path:"/editstep2",element:g.jsx(n1,{})}),g.jsx(on,{path:"/editstep3",element:g.jsx(y1,{})}),g.jsx(on,{path:"/editstep4",element:g.jsx(C1,{})}),g.jsx(on,{path:"/aboutus",element:g.jsx(N1,{})}),g.jsx(on,{path:"/qna",element:g.jsx(U1,{})})]})})]})})})}const X1=N.div`
 `,b1=N.div`
