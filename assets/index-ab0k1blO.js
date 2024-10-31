@@ -481,11 +481,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             max-width: 200px;
         }
     }
-`,D1=""+new URL("iconCukSheep-BeAgw9iE.png",import.meta.url).href,T1=""+new URL("btnEmail-CNyLKZ-y.png",import.meta.url).href;function N1(){return g.jsxs(O1,{children:[g.jsx(I1,{children:g.jsx("p",{children:"About Us"})}),g.jsxs(z1,{children:[g.jsxs(L1,{children:[g.jsx("img",{src:D1,alt:"Cuk Sheep"}),g.jsxs(F1,{children:[g.jsx("p",{children:"저희 Travley는"}),g.jsx("p",{children:"여행을 좋아하는 가톨릭대학교"}),g.jsx("p",{children:"인공지능 / 컴퓨터정보공학부에 재학 중인 학생들로"}),g.jsx("p",{children:"여행을 통해 좋은 추억을 남기고자"}),g.jsx("p",{children:"서비스를 제작하게 되었습니다."})]}),g.jsxs($1,{children:[g.jsx("p",{children:"저희 팀은"}),g.jsx("p",{children:"여행을 좋아하는 가톨릭대학교"}),g.jsx("p",{children:"인공지능/컴퓨터정보공학부 재학 중인 학생들로"}),g.jsx("p",{children:"여행을 통해 좋은 추억을 남기고자 서비스를 제작하게 되었습니다."}),g.jsx("br",{}),g.jsx("p",{children:"Clipper-GPT의 영상 편집 AI는 GPT의 자연어처리 기술과 저희 팀의 자체 제작 인공지능을 기반으로 만든 멀티모달 인공지능으로 보다 기존의 없던 높은 수준 의 영상 편집기술을 쉽고 편리하며 합리적인 가격에 제공하는 서비스입니다. 앞으로 꾸준한 업데이트를 통해 더 좋은 성능의 AI 서비스 제공을 할 예정입니다."})]})]}),g.jsxs(M1,{children:[g.jsxs("p",{children:["사업/투자",g.jsx("br",{})," 문의"]}),g.jsx("img",{src:T1,style:{width:"190px",height:"auto"}})]})]})]})}const O1=N.div`
+`,D1=""+new URL("iconCukSheep-BeAgw9iE.png",import.meta.url).href,T1=""+new URL("btnEmail-CNyLKZ-y.png",import.meta.url).href;function N1(){return g.jsxs(O1,{children:[g.jsx(I1,{children:g.jsx("p",{children:"About Us"})}),g.jsxs(z1,{children:[g.jsxs(L1,{children:[g.jsx("img",{src:D1,alt:"Cuk Sheep"}),g.jsxs(F1,{children:[g.jsx("p",{children:"저희 Travley는"}),g.jsx("p",{children:"여행을 좋아하는 가톨릭대학교"}),g.jsx("p",{children:"인공지능 / 컴퓨터정보공학부에 재학 중인 학생들로"}),g.jsx("p",{children:"여행을 통해 좋은 추억을 남기고자"}),g.jsx("p",{children:"서비스를 제작하게 되었습니다."})]}),g.jsxs($1,{children:[g.jsx("p",{children:"저희 팀은"}),g.jsx("p",{children:"여행을 좋아하는 가톨릭대학교"}),g.jsx("p",{children:"인공지능/컴퓨터정보공학부 재학 중인 학생들로"}),g.jsx("p",{children:"여행을 통해 좋은 추억을 남기고자 서비스를 제작하게 되었습니다."}),g.jsx("br",{}),g.jsx("p",{children:"Clipper-GPT의 영상 편집 AI는 GPT의 자연어처리 기술과 저희 팀의 자체 제작 인공지능을 기반으로 만든 멀티모달 인공지능으로 보다 기존의 없던 높은 수준 의 영상 편집기술을 쉽고 편리하며 합리적인 가격에 제공하는 서비스입니다. 앞으로 꾸준한 업데이트를 통해 더 좋은 성능의 AI 서비스 제공을 할 예정입니다."})]})]}),g.jsxs(M1,{children:[g.jsxs("p",{children:["사업/투자",g.jsx("br",{})," 문의"]}),g.jsx("img",{src:T1,style:{width:"150px",height:"auto"}})]})]})]})}const O1=N.div`
     background-color: #E1E5EA;
     width: 100vw; 
     font-family: Pretendard-Regular;
-    font-size: 20px;
+    font-size: 17px;
     height: calc(100vh - 50px);
 -
     @media (min-width: 768px) {
@@ -527,7 +527,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 
     @media (max-width: 768px) {
-        width: 280px;
+        width: 250px;
         padding: 30px 20px;
         text-align: center;
     }
@@ -556,8 +556,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     font-size: 20px;
 
     @media (max-width: 768px) {
-        min-width: 280px;
-        width: 280px;
+        min-width: 250px;
+        width: 250px;
         padding: 10px 20px;
         align-items: center; 
         text-align: center; 
@@ -566,7 +566,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     background-color: #E1E5EA;
     width: 100vw; 
     font-family: Pretendard-Regular;
-    font-size: 20px;
+    font-size: 17px;
     // height: calc(100vh - 50px);
     overflow-x:hidden;
 -
@@ -615,7 +615,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 
     @media (max-width: 768px) {
-        width: 280px;
+        width: 250px;
         padding: 30px 20px;
     }
 `,K1=N.div`
@@ -645,8 +645,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 
     @media (max-width: 768px) {
-        min-width: 280px;
-        width: 280px;
+        min-width: 250px;
+        width: 250px;
         padding: 10px 20px;
         align-items: center; 
         text-align: center; 
