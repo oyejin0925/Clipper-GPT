@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useNavigate, useLocation } from 'react-router-dom'; 
 import { useState } from 'react'; 
+import { useDropzone } from 'react-dropzone';
 import "../../assets/font/pretendard.css";
 import btnUpload from "../../assets/img/editStep/btnUpload.png";
 import btnUploadNonSelected from "../../assets/img/editStep/btnUploadNonSelected.png";
@@ -19,9 +20,8 @@ function EditStep2() {
 
     console.log("받아온 이메일:", email);
 
-    const handleFileChange = async (event) => {
-        const files = Array.from(event.target.files);
-        if (files.length + selectedFiles.length > 10) {
+    const onDrop = async (acceptedFiles) => {
+        if (acceptedFiles.length + selectedFiles.length > 10) {
             alert("영상은 최대 10개까지 선택할 수 있습니다.");
             return;
         }
@@ -29,7 +29,7 @@ function EditStep2() {
         const validFiles = [];
         let totalDuration = 0; 
 
-        for (const file of files) {
+        for (const file of acceptedFiles) {
             const validFormats = ['video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/x-matroska', 'video/x-flv', 'video/webm'];
             if (!validFormats.includes(file.type)) {
                 alert(`${file.name}은 지원되지 않는 형식입니다.`);
@@ -62,17 +62,25 @@ function EditStep2() {
     const getVideoDuration = (file) => {
         return new Promise((resolve) => {
             const videoElement = document.createElement('video');
-            videoElement.src = URL.createObjectURL(file);
-            videoElement.preload = "metadata";
+            const reader = new FileReader();
 
-            videoElement.onloadedmetadata = () => {
-                resolve(videoElement.duration); // duration은 초 단위
+            reader.onload = (e) => {
+                videoElement.src = e.target.result;
+                videoElement.preload = "metadata";
+
+                videoElement.onloadedmetadata = () => {
+                    resolve(videoElement.duration); // duration은 초 단위
+                };
+
+                videoElement.onerror = () => {
+                    console.error("비디오 로드 오류");
+                    resolve(0);
+                };
+
+                videoElement.load(); // 비디오 로드 시작
             };
 
-            videoElement.onerror = () => {
-                console.error("비디오 로드 오류");
-                resolve(0);
-            };
+            reader.readAsDataURL(file);
         });
     };
 
@@ -84,26 +92,34 @@ function EditStep2() {
     const getThumbnail = (file) => {
         return new Promise((resolve) => {
             const videoElement = document.createElement('video');
-            videoElement.src = URL.createObjectURL(file);
-            videoElement.muted = true;
-            videoElement.preload = "auto";
-    
-            videoElement.oncanplay = () => {
-                let canvas = document.createElement('canvas');
-                canvas.width = videoElement.videoWidth;
-                canvas.height = videoElement.videoHeight;
-    
-                let ctx = canvas.getContext('2d');
-                ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-    
-                const dataUri = canvas.toDataURL();
-                resolve(dataUri);
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                videoElement.src = e.target.result;
+                videoElement.muted = true;
+                videoElement.preload = "auto";
+
+                videoElement.oncanplay = () => {
+                    let canvas = document.createElement('canvas');
+                    canvas.width = videoElement.videoWidth;
+                    canvas.height = videoElement.videoHeight;
+
+                    let ctx = canvas.getContext('2d');
+                    ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+                    const dataUri = canvas.toDataURL();
+                    resolve(dataUri);
+                };
+
+                videoElement.onerror = () => {
+                    console.error("비디오 로드 오류");
+                    resolve(null); 
+                };
+
+                videoElement.load(); // 비디오 로드 시작
             };
 
-            videoElement.onerror = () => {
-                console.error("비디오 로드 오류");
-                resolve(null); 
-            };
+            reader.readAsDataURL(file);
         });
     };
 
@@ -122,6 +138,13 @@ function EditStep2() {
         navigate('../editstep3', { state: { files: filesWithThumbnails, thumbnails: thumbnailsToSend, email } });
     };
 
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop,
+        accept: {
+            'video/*': []
+        }
+    });
+
     return (
         <Container>
             <GoBack onClick={() => navigate('/')} className="goback-button">
@@ -132,19 +155,17 @@ function EditStep2() {
                     <p>영상을 시간 순서대로 업로드해주세요.</p>
                     <p>영상은 10개 이하, 총 30분 이하만 업로드 가능합니다.</p>
                 </TextContainer>
-                <BtnContainer>
-                    <label htmlFor="file-upload" style={{ cursor: 'pointer' }}>
-                        <img src={btnUpload} alt="Upload" />
-                    </label>
-                    <input 
-                        id="file-upload" 
-                        type="file" 
-                        accept="video/*" 
-                        multiple 
-                        onChange={handleFileChange} 
-                        style={{ display: 'none' }}
-                    />
-                </BtnContainer>
+                <UploadWrap>
+                    <BtnContainer {...getRootProps()} style={{ cursor: 'pointer', textAlign: 'center' }}>
+                        <input {...getInputProps()} style={{ display: 'none' }} />
+                        <img 
+                            src={btnUpload} 
+                            alt="Upload" 
+                            style={{cursor: 'pointer' }} 
+                            onClick={() => document.getElementById('file-upload').click()} 
+                        />
+                    </BtnContainer>
+                </UploadWrap>
                 <SelectedFiles>
                     <FileList>
                         {selectedFiles.map((file, index) => (
@@ -224,11 +245,17 @@ const TextContainer = styled.div`
     }
 `;
 
-const BtnContainer = styled.div`
+const UploadWrap = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    border: none;
+`
+const BtnContainer = styled.div`
+    border:1px solid purple;
+    padding: 0;
+    height: 63px;
 `;
 
 const SelectedFiles = styled.div`
@@ -236,8 +263,7 @@ const SelectedFiles = styled.div`
     text-align: center;
     color: #333;
     max-height: 150px;
-    overflow-y: auto;
-
+    overflow-y: auto;    
     @media (max-width: 768px) {
         max-height: 135px;
     }
@@ -263,7 +289,7 @@ const FileItem = styled.div`
     padding: 5px 10px;
     border-radius: 5px;
 
-    @media (max    @media (max-width: 768px) {
+    @media (max-width: 768px) {
         font-size: 12px;
         padding: 5px;
     }
@@ -325,4 +351,5 @@ const CompleteContainer = styled.div`
 `;
 
 export default EditStep2;
+
 
