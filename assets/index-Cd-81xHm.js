@@ -194,7 +194,7 @@ Error generating stack: `+o.message+`
     text-align: center;
     margin-top: 20px;
     padding-top: 5%;
-
+    
     #input-email {
         width: 456px; 
         height: 84px;
@@ -202,6 +202,7 @@ Error generating stack: `+o.message+`
         border: 1px solid black;
         border-radius: 10px;
         padding-left: 20px;
+        background-color: white;
 
         @media (max-width: 768px) { 
             width: 300px;
@@ -220,7 +221,6 @@ Error generating stack: `+o.message+`
     }
 
     @media (prefers-color-scheme: dark) {
-        background-color: white; 
         #input-email {
             background-color: white;
         }
