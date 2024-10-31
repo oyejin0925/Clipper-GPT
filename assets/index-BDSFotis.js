@@ -173,7 +173,7 @@ Error generating stack: `+o.message+`
     font-size: 60px;
 
     @media (max-width: 768px) {
-        font-size: 28px;
+        font-size: 25px;
         padding: 15% 10px 5% 10px;
     }
 
