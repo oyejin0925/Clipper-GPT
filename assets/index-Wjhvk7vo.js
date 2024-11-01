@@ -226,14 +226,6 @@ Error generating stack: `+o.message+`
     }
 
     @media (prefers-color-scheme: dark) {
-        #input-email {
-            background-color: white;
-            color: violet;
-        }
-        input {
-            background-color:white;
-            color:violet;
-        }
         #input-email::placeholder {
             color: #828282;
         }
