@@ -229,6 +229,10 @@ Error generating stack: `+o.message+`
             background-color: white;
             color: black;
         }
+        input {
+            background-color:white;
+            color:black;
+        }
         #input-email::placeholder {
             color: #828282;
         }
@@ -382,7 +386,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     left: 50%;
     transform: translateX(-50%); 
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 20px;
 
     @media (max-width: 768px) {
         bottom: 150px;
