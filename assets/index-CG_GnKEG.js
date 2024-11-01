@@ -267,7 +267,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     margin-top: 40px; 
 
     @media (max-width: 768px) {
-        margin-top: 0px; margin-bottom: 15px;
+        margin-top: 0px; 
         width: 80%;
         padding: 20px;
     }
@@ -287,7 +287,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,a1=N.div`
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 20px; margin-bottom: 15px;
     padding-bottom: 10px;
     border: none;
 `,u1=N.div`
