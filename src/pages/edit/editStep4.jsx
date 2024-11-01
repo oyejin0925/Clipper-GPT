@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useLocation, useNavigate } from 'react-router-dom'; 
-import "../../assets/font/pretendard.css";
+import "../../assets/font/font.css";
 import btnGoHome from "../../assets/img/editStep/btnGoHome.png";
 import ProgressBar from '../../components/progressbar'; 
 import btnGoBack from "../../assets/img/editStep/btnGoBack.png";
@@ -43,7 +43,7 @@ function EditStep4() {
                     src={btnGoHome} 
                     alt="Go Home" 
                     onClick={handleSubmit} 
-                    style={{ cursor: 'pointer', marginTop: '10px', paddingTop: '10px' }}
+                    style={{ cursor: 'pointer', marginTop: '10px', paddingTop: '10px',  width: '190px', height:'auto'  }}
                 />
             </BtnContainer>
             <ProgressBar currentStep={4} />
@@ -64,6 +64,9 @@ const Container = styled.div`
 
     @media (max-width: 768px) {
         width: 100vw;
+    }
+    @media (prefers-color-scheme: dark) {
+        color: #828282; 
     }
 `;
 const GoBack = styled.div`
@@ -105,6 +108,9 @@ const CommentContainer = styled.div`
         p {
             font-size: 14px;
         }
+    }
+    @media (prefers-color-scheme: dark) {
+        color: #828282; 
     }
 `;
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import "../assets/font/pretendard.css";
+import "../assets/font/font.css";
 import btnAsk from "../assets/img/aboutQnA/btnAsk.png";
 
 function QnA() {
@@ -33,7 +33,7 @@ function QnA() {
                 </AboutContainer>
                 <InfoContainer>
                     <p className="bold">Q&A</p>
-                    <img src={btnAsk} alt="Email Button" />
+                    <img src={btnAsk} style={{ width: '150px', height:'auto' }} />
                 </InfoContainer>
             </Wrap>
         </Container>
@@ -54,10 +54,15 @@ const Container = styled.div`
         overflow: hidden;
         font-size: 15px;
     }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #E1E5EA;
+        color: black;
+    }
 `;
 
 const Title = styled.div`
-    font-family: Pretendard-Bold;
+    font-family: yg-jalnan;
     font-size: 60px;
     p {
         margin: 0;
@@ -66,7 +71,7 @@ const Title = styled.div`
     text-align: center;
 
     @media (max-width: 768px) {
-        font-size: 30px;
+        font-size: 23px;
     }
 `;
 
@@ -81,6 +86,11 @@ const Wrap = styled.div`
     }
     @media (max-width: 768px) {
         padding-bottom: 0px;
+
+        .bold {
+            font-family: Pretendard-Bold;
+            font-size: 20px;
+        }
     }
 `;
 
@@ -99,8 +109,15 @@ const AboutContainer = styled.div`
     }
 
     @media (max-width: 768px) {
-        width: 400px;
+        width: 250px;
         padding: 30px 20px;
+        font-size: 15px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: white; 
+        border: 1px solid black;
+        color: black;
     }
 `;
 
@@ -131,21 +148,25 @@ const InfoContainer = styled.div`
     border: 1px solid black;
     border-radius: 10px;
     align-items: center;
+    font-family: Pretendard-Bold;
     p {
         margin: 0;
     }
 
     @media (max-width: 768px) {
-        min-width: 340px;
-        width: 400px;
-        padding: 20px;
+        min-width: 250px;
+        width: 250px;
+        padding: 10px 20px;
         align-items: center; 
         text-align: center; 
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        font-size: 15px;
+    }
 
-        img{
-            width: 250px;
-        }
+    @media (prefers-color-scheme: dark) {
+        background-color: white;
+        border: 1px solid black;
+        color: black; 
     }
 `;
 

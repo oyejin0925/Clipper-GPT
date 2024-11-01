@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom'; 
-import "../../assets/font/pretendard.css";
+import "../../assets/font/font.css";
 import btnGetStarted from "../../assets/img/editStep/btnGetstarted.png";
 import ProgressBar from '../../components/progressbar'; 
 
@@ -25,7 +25,8 @@ function EditStep1() {
     return (
         <Container>
             <TitleContainer>
-                <p>나만의 여행 영상 편집자 <b style={{fontFamily: "Pretendard-Bold"}}>Clipper-GPT</b>로</p>
+                <p>나만의 여행 영상 편집자</p>
+                <p><b style={{fontFamily: "yg-jalnan", fontWeight: '800'}}>Clipper-GPT</b>로</p>
                 <p>추억을 더 생생하게 간직해보세요.</p>
             </TitleContainer>
             <InputContainer>
@@ -34,13 +35,14 @@ function EditStep1() {
                     type="text" 
                     placeholder="이메일을 입력해주세요." 
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)} 
+                    onChange={(e) => setEmail(e.target.value)}
+                    style={{ backgroundColor:'white', color: 'black' }} 
                 />
                 <img 
                     src={btnGetStarted} 
                     alt="Get Started" 
                     onClick={handleSubmit} 
-                    style={{ cursor: 'pointer', marginTop: '10px', paddingTop: '10px' }}
+                    style={{ cursor: 'pointer', marginTop: '10px', paddingTop: '10px', width: '190px', height:'auto' }}
                 />
             </InputContainer>
             <ProgressBar currentStep={1} />
@@ -63,21 +65,31 @@ const Container = styled.div`
         min-width: 340px;
         overflow: hidden;
     }
+    @media (prefers-color-scheme: dark) {
+        background-color: #E1E5EA;
+        color: black; 
+        input {
+            color: black;
+        }
+    }
 `;
 
 const TitleContainer = styled.div`
     text-align: center; 
     padding-top: 7%;
-    font-family: Pretendard-Regular;
+    font-family: NanumGothicBold;
     font-size: 60px;
 
     @media (max-width: 768px) {
-        font-size: 28px;
+        font-size: 25px;
         padding: 15% 10px 5% 10px;
     }
 
     p {
         margin: 0; 
+    }
+    @media (prefers-color-scheme: dark) {
+        color: black; 
     }
 `;
 
@@ -88,7 +100,7 @@ const InputContainer = styled.div`
     text-align: center;
     margin-top: 20px;
     padding-top: 5%;
-
+    
     #input-email {
         width: 456px; 
         height: 84px;
@@ -96,6 +108,8 @@ const InputContainer = styled.div`
         border: 1px solid black;
         border-radius: 10px;
         padding-left: 20px;
+        background-color:white;
+        color: black;
 
         @media (max-width: 768px) { 
             width: 300px;
@@ -111,6 +125,12 @@ const InputContainer = styled.div`
 
         @media (max-width: 768px) { 
             font-size: 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #input-email::placeholder {
+            color: #828282;
+        }
     }
 `;
 

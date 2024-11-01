@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useLocation, useNavigate } from 'react-router-dom'; 
 import { useState } from 'react'; 
-import "../../assets/font/pretendard.css";
+import "../../assets/font/font.css";
 import btnStartEdit from "../../assets/img/editStep/btnStartEdit.png";
 import ProgressBar from '../../components/progressbar'; 
 import btnGoBack from "../../assets/img/editStep/btnGoBack.png";
@@ -85,7 +85,7 @@ function EditStep3() {
                         src={btnStartEdit} 
                         alt="Get Started" 
                         type="submit" 
-                        style={{ cursor: 'pointer', marginTop: '30px', paddingTop: '10px' }}
+                        style={{ cursor: 'pointer', marginTop: '30px', paddingTop: '10px', width: '190px', height:'auto'  }}
                     />
                 </form>
             </InputContainer>
@@ -106,6 +106,10 @@ const Container = styled.div`
 
     @media (max-width: 768px) {
         width: 100vw;
+    }
+        
+    @media (prefers-color-scheme: dark) {
+        color: black; 
     }
 `;
 
@@ -132,8 +136,8 @@ const ThumbnailContainer = styled.div`
 
     @media (max-width: 768px) {
         max-width: 300px;
-        max-height: 250px;
-        margin-top: 10%;
+        max-height: 150px;
+        // margin-top: 8px;
     }
 
     img {
@@ -172,6 +176,16 @@ const InputContainer = styled.div`
 
         @media (max-width: 768px) {
             font-size: 16px;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #input-title {
+            background-color: white;
+            color: black;
+        }
+        #input-title::placeholder {
+            color: #828282;
         }
     }
 `;

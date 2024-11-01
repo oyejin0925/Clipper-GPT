@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useNavigate, useLocation } from 'react-router-dom'; 
 import { useState } from 'react'; 
 import { useDropzone } from 'react-dropzone';
-import "../../assets/font/pretendard.css";
+import "../../assets/font/font.css";
 import btnUpload from "../../assets/img/editStep/btnUpload.png";
 import btnUploadNonSelected from "../../assets/img/editStep/btnUploadNonSelected.png";
 import btnUploadSelected from "../../assets/img/editStep/btnUploadSelected.png";
@@ -30,9 +30,21 @@ function EditStep2() {
         let totalDuration = 0; 
 
         for (const file of acceptedFiles) {
-            const validFormats = ['video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/x-matroska', 'video/x-flv', 'video/webm'];
+            const validFormats = [
+                'video/mp4',       // .mp4
+                'video/mov',       // .mov
+                'video/quicktime', // .qt
+                'video/x-msvideo', // .avi
+                'video/x-matroska',// .mkv
+                'video/x-flv',     // .flv
+                'video/webm',      // .webm
+                'video/avi',       // .avi
+                'video/hevc',      // .hevc
+                'video/h265'       // .h265
+            ];
+            
             if (!validFormats.includes(file.type)) {
-                alert(`${file.name}은 지원되지 않는 형식입니다.`);
+                console(`${file.name}은 지원되지 않는 형식입니다.`);
                 continue;
             }
 
@@ -116,7 +128,7 @@ function EditStep2() {
                     resolve(null); 
                 };
 
-                videoElement.load(); // 비디오 로드 시작
+                videoElement.load(); 
             };
 
             reader.readAsDataURL(file);
@@ -150,7 +162,7 @@ function EditStep2() {
             <GoBack onClick={() => navigate('/')} className="goback-button">
                 <img src={btnGoBack} alt="Go Back" />
             </GoBack>
-            <UploadContainer height={selectedFiles.length === 0 ? '180px' : '300px'}>
+            <UploadContainer height={selectedFiles.length === 0 ? '180px' : '280px'}>
                 <TextContainer>
                     <p>영상을 시간 순서대로 업로드해주세요.</p>
                     <p>영상은 10개 이하, 총 30분 이하만 업로드 가능합니다.</p>
@@ -161,7 +173,7 @@ function EditStep2() {
                         <img 
                             src={btnUpload} 
                             alt="Upload" 
-                            style={{cursor: 'pointer' }} 
+                            style={{cursor: 'pointer', width: '190px', height:'auto'  }} 
                             onClick={() => document.getElementById('file-upload').click()} 
                         />
                     </BtnContainer>
@@ -187,7 +199,7 @@ function EditStep2() {
                 </SelectedFiles>
             </UploadContainer>
             <CompleteContainer onClick={handleComplete}>
-                <img src={selectedFiles.length > 0 ? btnUploadSelected : btnUploadNonSelected} alt="Complete" />
+                <img src={selectedFiles.length > 0 ? btnUploadSelected : btnUploadNonSelected} alt="Complete" style={{ width: '190px', height:'auto' }} />
             </CompleteContainer>
             <ProgressBar currentStep={2} />
         </Container>
@@ -206,6 +218,9 @@ const Container = styled.div`
     @media (max-width: 768px) {
         width: 100vw;
     }
+    @media (prefers-color-scheme: dark) {
+        color: black; 
+    }
 `;
 
 const GoBack = styled.div`
@@ -222,12 +237,13 @@ const UploadContainer = styled.div`
     width: 456px; 
     height: ${(props) => props.height};
     background-color: white;
-    padding: 30px 50px 10px 50px;
+    padding: 20px 50px 10px 50px;
     border: 1px solid black;
     border-radius: 5px;
-    margin-top: 40px;
+    margin-top: 40px; 
 
     @media (max-width: 768px) {
+        margin-top: 0px; 
         width: 80%;
         padding: 20px;
     }
@@ -243,17 +259,19 @@ const TextContainer = styled.div`
     @media (max-width: 768px) {
         font-size: 14px;
     }
+    @media (prefers-color-scheme: dark) {
+        color: #828282; 
+    }
 `;
 
 const UploadWrap = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 20px; margin-bottom: 15px;
     padding-bottom: 10px;
     border: none;
 `
 const BtnContainer = styled.div`
-    border:1px solid purple;
     padding: 0;
     height: 63px;
 `;
@@ -267,6 +285,9 @@ const SelectedFiles = styled.div`
     @media (max-width: 768px) {
         max-height: 135px;
     }
+    @media (prefers-color-scheme: dark) {
+        color: #333; 
+    }
 `;
 
 const FileList = styled.div`
@@ -276,6 +297,10 @@ const FileList = styled.div`
 
     @media (max-width: 768px) {
         max-height: 135px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: black; 
     }
 `;
 
@@ -292,6 +317,10 @@ const FileItem = styled.div`
     @media (max-width: 768px) {
         font-size: 12px;
         padding: 5px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: #D9D9D9; 
     }
 `;
 
@@ -322,6 +351,9 @@ const FileName = styled.span`
     @media (max-width: 768px) {
         width: 100px;
     }
+    @media (prefers-color-scheme: dark) {
+        color: black; 
+    }
 `;
 
 const CancelIcon = styled.img`
@@ -344,6 +376,7 @@ const CompleteContainer = styled.div`
     left: 50%;
     transform: translateX(-50%); 
     cursor: pointer;
+    margin-top: 20px;
 
     @media (max-width: 768px) {
         bottom: 150px;

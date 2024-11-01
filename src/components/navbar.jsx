@@ -2,15 +2,15 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import airplane from '../assets/img/navFooter/airplane.png';
 import logo from "../assets/img/navFooter/ClipperGPTLogo.png";
-import "../assets/font/pretendard.css";
+import "../assets/font/font.css";
 
 function NavBar() {
   return (
     <Wrap>
       <Link className='navmenu' to={'/'}>
         <LogoContainer>
-          <img src={airplane} alt="Airplane" />
-          <img src={logo} alt="Travely White" />
+          <img src={airplane} style={{width: 'auto', height: '20px'}} alt="Airplane" />
+          <img src={logo} style={{width: 'auto', height: '20px'}} alt="Travely White" />
         </LogoContainer>
       </Link>
       <Pages>
@@ -29,7 +29,6 @@ function NavBar() {
 }
 
 const Wrap = styled.div`
-  // min-width: 1080px;
   background-color: #043873;
   height: 50px;
   display: flex;
@@ -45,15 +44,15 @@ const Wrap = styled.div`
   }
 
   @media (max-width: 768px) {
-    min-width: auto; // 모바일 화면에서 최소 너비 제거
-    height: auto; // 높이 자동 조정
-    padding: 10px; // 여백 추가
+    min-width: auto; 
+    height: auto; 
+    padding: 10px; 
   }
 `;
 
 const LogoContainer = styled.div`
   display: flex;
-  align-items: center; // 이미지 세로 정렬
+  align-items: center;
 
   img {
     height: 30px;
@@ -66,11 +65,12 @@ const Pages = styled.div`
   padding-right: 20px;
   display: flex;
   flex-direction: row;
+  
 
   @media (max-width: 768px) {
     padding-right: 10px;
-    justify-content: flex-end; // 오른쪽 정렬
-    width: 100%; // 전체 너비 사용
+    justify-content: flex-end; 
+    width: 100%;
   }
 `;
 
@@ -81,7 +81,8 @@ const Menu = styled.div`
   align-items: center; 
   transition: transform 0.2s ease-in-out; 
   cursor: pointer;
-
+  font-family: Pretendard-Regular;
+  
   &:hover {
     transform: scale(1.1);
   }
