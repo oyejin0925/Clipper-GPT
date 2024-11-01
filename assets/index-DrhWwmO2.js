@@ -264,10 +264,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     padding: 20px 50px 10px 50px;
     border: 1px solid black;
     border-radius: 5px;
-    margin-top: 40px; margin-bottom: 10px;
+    margin-top: 40px; 
 
     @media (max-width: 768px) {
-        margin-top: 0px;
+        margin-top: 0px; margin-bottom: 10px;
         width: 80%;
         padding: 20px;
     }
