@@ -20,6 +20,7 @@ function EditStep3() {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // 기본 동작 방지
+        console.log("btnStartEdit이 눌렸습니다.");
 
         if (title.trim() === "") {
             alert("브이로그의 제목을 입력해주세요.");
@@ -73,21 +74,26 @@ function EditStep3() {
                 )}
             </ThumbnailContainer>
             <InputContainer>
-                <form onSubmit={handleSubmit}>
-                    <input 
-                        id="input-title"
-                        type="text" 
-                        placeholder="브이로그의 제목을 써주세요." 
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
+            <form onSubmit={handleSubmit}>
+                <input 
+                    id="input-title"
+                    type="text" 
+                    placeholder="브이로그의 제목을 써주세요." 
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                />
+                <button 
+                    type="submit" 
+                    style={{ cursor: 'pointer', marginTop: '30px', paddingTop: '10px', width: '190px', height: 'auto', border: 'none', background: 'none' }}
+                >
                     <img 
                         src={btnStartEdit} 
                         alt="Get Started" 
-                        type="submit" 
-                        style={{ cursor: 'pointer', marginTop: '30px', paddingTop: '10px', width: '190px', height:'auto'  }}
+                        style={{ width: '100%' }} 
                     />
-                </form>
+                </button>
+            </form>
+
             </InputContainer>
             <ProgressBar currentStep={3} />
         </Container>
