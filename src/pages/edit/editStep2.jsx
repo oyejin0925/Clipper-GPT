@@ -49,8 +49,8 @@ function EditStep2() {
             }
 
             const duration = await getVideoDuration(file);
-            if (duration > 30 * 60) {
-                alert(`${file.name}은 30분을 초과합니다.`);
+            if (duration > 60 * 60) {
+                alert(`${file.name}은 60분을 초과합니다.`);
             } else {
                 validFiles.push(file);
                 totalDuration += duration;
@@ -61,8 +61,8 @@ function EditStep2() {
         const existingDurations = await Promise.all(selectedFiles.map(file => getVideoDuration(file)));
         const totalExistingDuration = existingDurations.reduce((sum, duration) => sum + duration, 0);
 
-        if (totalDuration + totalExistingDuration > 30 * 60) {
-            alert("선택한 영상들의 총 길이는 30분을 초과할 수 없습니다.");
+        if (totalDuration + totalExistingDuration > 60 * 60) {
+            alert("선택한 영상들의 총 길이는 60분을 초과할 수 없습니다.");
             return;
         }
 
