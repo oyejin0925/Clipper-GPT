@@ -21,54 +21,45 @@ function EditStep2() {
     console.log("받아온 이메일:", email);
 
     const onDrop = async (acceptedFiles) => {
-        if (acceptedFiles.length + selectedFiles.length > 10) {
-            alert("영상은 최대 10개까지 선택할 수 있습니다.");
+        // Only accept a single file at a time
+        if (acceptedFiles.length > 1 || selectedFiles.length >= 10) {
+            alert("영상을 하나씩 업로드해주세요. 최대 10개까지 가능합니다.");
             return;
         }
-
-        const validFiles = [];
-        let totalDuration = 0; 
-
-        for (const file of acceptedFiles) {
-            const validFormats = [
-                'video/mp4',       // .mp4
-                'video/mov',       // .mov
-                'video/quicktime', // .qt
-                'video/x-msvideo', // .avi
-                'video/x-matroska',// .mkv
-                'video/x-flv',     // .flv
-                'video/webm',      // .webm
-                'video/avi',       // .avi
-                'video/hevc',      // .hevc
-                'video/h265'       // .h265
-            ];
-            
-            if (!validFormats.includes(file.type)) {
-                console(`${file.name}은 지원되지 않는 형식입니다.`);
-                continue;
-            }
-
-            const duration = await getVideoDuration(file);
-            if (duration > 60 * 60) {
-                alert(`${file.name}은 60분을 초과합니다.`);
-            } else {
-                validFiles.push(file);
-                totalDuration += duration;
-            }
+    
+        const file = acceptedFiles[0];
+        
+        const validFormats = [
+            'video/mp4',       // .mp4
+            'video/mov',       // .mov
+            'video/quicktime', // .qt
+            'video/x-msvideo', // .avi
+            'video/x-matroska',// .mkv
+            'video/x-flv',     // .flv
+            'video/webm',      // .webm
+            'video/avi',       // .avi
+            'video/hevc',      // .hevc
+            'video/h265'       // .h265
+        ];
+    
+        if (!validFormats.includes(file.type)) {
+            alert(`${file.name}은 지원되지 않는 형식입니다.`);
+            return;
         }
-
-        // 총 길이가 30분을 초과하는지 체크
+    
+        const duration = await getVideoDuration(file);
         const existingDurations = await Promise.all(selectedFiles.map(file => getVideoDuration(file)));
-        const totalExistingDuration = existingDurations.reduce((sum, duration) => sum + duration, 0);
-
-        if (totalDuration + totalExistingDuration > 60 * 60) {
+        const totalDuration = existingDurations.reduce((sum, duration) => sum + duration, 0);
+    
+        if (duration > 60 * 60) {
+            alert(`${file.name}은 60분을 초과합니다.`);
+        } else if (totalDuration + duration > 60 * 60) {
             alert("선택한 영상들의 총 길이는 60분을 초과할 수 없습니다.");
-            return;
+        } else {
+            const thumbnail = await getThumbnail(file);
+            setSelectedFiles((prevFiles) => [...prevFiles, file]);
+            setThumbnails((prevThumbnails) => [...prevThumbnails, thumbnail]);
         }
-
-        const newThumbnails = await Promise.all(validFiles.map(file => getThumbnail(file)));
-        setSelectedFiles((prevFiles) => [...prevFiles, ...validFiles]);
-        setThumbnails((prevThumbnails) => [...prevThumbnails, ...newThumbnails]);
     };
 
     const getVideoDuration = (file) => {
@@ -81,7 +72,7 @@ function EditStep2() {
                 videoElement.preload = "metadata";
 
                 videoElement.onloadedmetadata = () => {
-                    resolve(videoElement.duration); // duration은 초 단위
+                    resolve(videoElement.duration); 
                 };
 
                 videoElement.onerror = () => {

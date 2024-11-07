@@ -15,8 +15,6 @@ function EditStep3() {
     const videos = location.state?.files;
     const thumbnails = location.state?.thumbnails;
     const email = location.state?.email; 
-    console.log("받아온 비디오 정보:", videos);
-    console.log("받아온 이메일:", email);
 
     const [title, setTitle] = useState("");
 
@@ -33,7 +31,8 @@ function EditStep3() {
         formData.append("title", title);
     
         videos.forEach((video, index) => {
-            formData.append("videos", video.file);
+            const renamedFile = new File([video.file], `${index}.mp4`, { type: video.file.type });
+            formData.append("videos", renamedFile);
         });
     
         try {
