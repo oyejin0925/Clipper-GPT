@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useLocation, useNavigate } from 'react-router-dom'; 
 import { useState } from 'react'; 
+import uuid from 'react-uuid'
 import "../../assets/font/font.css";
 import btnStartEdit from "../../assets/img/editStep/btnStartEdit.png";
 import ProgressBar from '../../components/progressbar'; 
@@ -31,7 +32,7 @@ function EditStep3() {
         formData.append("title", title);
     
         videos.forEach((video, index) => {
-            const renamedFile = new File([video.file], `${index}.mp4`, { type: video.file.type });
+            const renamedFile = new File([video.file], uuid() + '_' +`${title}` + '_' + `${index}.mp4`, { type: video.file.type });
             formData.append("videos", renamedFile);
         });
     
