@@ -7,53 +7,50 @@ import ProgressBar from '../../components/progressbar';
 import btnGoBack from "../../assets/img/editStep/btnGoBack.png";
 
 function EditStep3() {
+    const baseURL = "http://127.0.0.1:8000"
+
     const location = useLocation();
     const navigate = useNavigate(); 
 
-    const files = location.state?.files;
+    const videos = location.state?.files;
     const thumbnails = location.state?.thumbnails;
-    const mail = location.state?.email; 
-    console.log("받아온 비디오 정보:", files);
-    console.log("받아온 이메일:", mail);
+    const email = location.state?.email; 
+    console.log("받아온 비디오 정보:", videos);
+    console.log("받아온 이메일:", email);
 
     const [title, setTitle] = useState("");
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // 기본 동작 방지
-        console.log("btnStartEdit이 눌렸습니다.");
-
+        e.preventDefault();
+    
         if (title.trim() === "") {
             alert("브이로그의 제목을 입력해주세요.");
             return;
         }
-
-        const postData = {
-            mail,
-            title,
-            files 
-        };
-
-        console.log("전송할 데이터:", postData);
-
+    
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("title", title);
+    
+        videos.forEach((video, index) => {
+            formData.append("videos", video.file);
+        });
+    
         try {
-            const response = await fetch('http://34.22.106.77', { 
+            const response = await fetch(baseURL + '/edit/upload', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(postData), 
+                body: formData,
             });
-
+    
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-
+    
             const result = await response.json();
-            console.log(result);
-
-            navigate('../editstep4', { state: { files, title, mail, thumbnails } });
-        } 
-        catch (error) {
+            alert(result.message);
+    
+            navigate('../editstep4', { state: { title, email, thumbnails } });
+        } catch (error) {
             console.error("Error during fetch:", error);
             alert("서버에 오류가 발생했습니다. 나중에 다시 시도해주세요.");
         }
