@@ -30,9 +30,10 @@ function EditStep3() {
         const formData = new FormData();
         formData.append("email", email);
         formData.append("title", title);
+        var randUUID = uuid();
     
         videos.forEach((video, index) => {
-            const renamedFile = new File([video.file], uuid() + '_' +`${title}` + '_' + `${index}.mp4`, { type: video.file.type });
+            const renamedFile = new File([video.file], randUUID + '_' +`${title}` + '_' + `${index}.mp4`, { type: video.file.type });
             formData.append("videos", renamedFile);
         });
     
