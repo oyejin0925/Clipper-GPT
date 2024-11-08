@@ -9,11 +9,9 @@ function EditStep4() {
     const location = useLocation();
     const navigate = useNavigate(); 
 
-    const files = location.state?.files;
     const thumbnails = location.state?.thumbnails;
     const title = location.state?.title;
-    console.log("받아온 비디오 정보:", files);
-    console.log("받아온 제목:", title);
+    const email = location.state?.email;
 
     const handleSubmit = () => {
         navigate('../');
@@ -34,9 +32,9 @@ function EditStep4() {
                 )}
             </ThumbnailContainer>
             <CommentContainer>
-                <p>{`'${title || "제목이 없습니다."}'이 편집 중입니다.`}</p> 
-                <p>조금만 기다려주시면 이메일로 전송해드리겠습니다</p>
-                <p>Travely 서비스를 사용해주셔서 감사합니다.</p>
+                <p>{`"${title || "제목이 없습니다."}"을 Clipper-GTP가 편집 중입니다`}</p>
+                <p>조금만 기다려주시면 "{email}"로 전송해드리겠습니다</p>
+                {/* <p>Travely 서비스를 사용해주셔서 감사합니다.</p> */}
             </CommentContainer>
             <BtnContainer>
                 <img 

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import "../assets/font/font.css";
-import btnAsk from "../assets/img/aboutQnA/btnAsk.png";
+// import btnAsk from "../assets/img/aboutQnA/btnAsk.png";
+import btnAsk from "../assets/img/aboutQnA/btnEmail.png";
 
 function QnA() {
     return (
@@ -15,20 +16,16 @@ function QnA() {
                     <p>Q. 이메일이 오지 않아요.</p>
                     <br />
                     <MobileContent>
-                        <p>A. 인공지능이 편집을 하는데에 시간이 걸립니다. 조금만 기다려주세요.</p>
-                        <p>만약 1일 내로 메일이 오지 않는다면</p>
-                        <p className="tabbed">1. 스팸차단함을 확인해주세요.</p>
-                        <p className="tabbed">2. 이메일이 오기 전까지 해당 창을 백그라운드에 켜놔주세요.</p><br />
-                        <p>만약 문제가 해결되지 않았다면</p>
-                        <p className="tabbed">3. 문의하기를 눌러 상담원에게 메시지를 보내주세요.</p>
+                        <p>A. 인공지능이 편집을 하는데에 시간이 걸립니다. 조금만 기다려주세요. 만약 1일 내로 메일이 오지 않는다면 스팸차단함을 확인해주세요.</p>
+                        {/* <p className="tabbed">2. 이메일이 오기 전까지 해당 창을 백그라운드에 켜놔주세요.</p><br /> */}
+                        <p>- 만약 문제가 해결되지 않았다면 상담원에게 메일을 보내주세요</p>
                     </MobileContent>
                     <DesktopContent>
                         <p>A. 인공지능이 편집을 하는데에 시간이 걸립니다. 조금만 기다려주세요. 만약 1일 내로 메일이 오지 않는다면</p>
-                        <p className="tabbed">1. 스팸차단함을 확인해주세요.</p>
-                        <p className="tabbed">2. 이메일이 오기 전까지 해당 창을 백그라운드에 켜놔주세요.</p>
+                        <p className="tabbed">스팸차단함을 확인해주세요.</p>
+                        {/* <p className="tabbed">2. 이메일이 오기 전까지 해당 창을 백그라운드에 켜놔주세요.</p> */}
                         <br />
-                        <p>만약 문제가 해결되지 않았다면</p>
-                        <p className="tabbed">3. 문의하기를 눌러 상담원에게 메시지를 보내주세요.</p>
+                        <p>- 만약 문제가 해결되지 않았다면 상담원에게 메일을 보내주세요</p>
                     </DesktopContent>
                 </AboutContainer>
                 <InfoContainer>

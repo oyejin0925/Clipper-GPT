@@ -56,7 +56,8 @@ const LogoContainer = styled.div`
 
   img {
     height: 30px;
-    margin-right: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 `;
 
