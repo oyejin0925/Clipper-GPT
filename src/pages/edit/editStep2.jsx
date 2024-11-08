@@ -156,7 +156,7 @@ function EditStep2() {
             <UploadContainer height={selectedFiles.length === 0 ? '180px' : '280px'}>
                 <TextContainer>
                     <p>영상을 시간 순서대로 업로드해주세요.</p>
-                    <p>영상은 10개 이하, 총 30분 이하만 업로드 가능합니다.</p>
+                    <p>영상은 10개 이하, 총 60분 이하만 업로드 가능합니다.</p>
                 </TextContainer>
                 <UploadWrap>
                     <BtnContainer {...getRootProps()} style={{ cursor: 'pointer', textAlign: 'center' }}>
