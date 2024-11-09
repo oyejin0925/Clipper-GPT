@@ -8,7 +8,7 @@ import ProgressBar from '../../components/progressbar';
 import btnGoBack from "../../assets/img/editStep/btnGoBack.png";
 
 function EditStep3() {
-    const baseURL = "http://127.0.0.1:8000"
+    // const baseURL = "http://127.0.0.1:8000"
 
     const location = useLocation();
     const navigate = useNavigate(); 
@@ -38,8 +38,11 @@ function EditStep3() {
         });
     
         try {
-            const response = await fetch(baseURL + '/edit/upload', {
+            const response = await fetch('/api/edit/upload', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
                 body: formData,
             });
     
