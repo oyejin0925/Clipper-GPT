@@ -8,7 +8,7 @@ import ProgressBar from '../../components/progressbar';
 import btnGoBack from "../../assets/img/editStep/btnGoBack.png";
 
 function EditStep3() {
-    const baseURL = "http://127.0.0.1:8000"
+    // const baseURL = "http://127.0.0.1:8000"
 
     const location = useLocation();
     const navigate = useNavigate(); 
@@ -30,15 +30,19 @@ function EditStep3() {
         const formData = new FormData();
         formData.append("email", email);
         formData.append("title", title);
+        var randUUID = uuid();
     
         videos.forEach((video, index) => {
-            const renamedFile = new File([video.file], uuid() + '_' +`${title}` + '_' + `${index}.mp4`, { type: video.file.type });
+            const renamedFile = new File([video.file], randUUID + '_' +`${title}` + '_' + `${index}.mp4`, { type: video.file.type });
             formData.append("videos", renamedFile);
         });
     
         try {
-            const response = await fetch(baseURL + '/edit/upload', {
+            const response = await fetch('/api/edit/upload', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
                 body: formData,
             });
     
